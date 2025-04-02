@@ -144,7 +144,7 @@ def process_bank_statement(df):
         }).reset_index()
         
         # Sort by total money out and get top 20
-        top_recipients = recipients.sort_values('Money out', ascending=False).head(100)
+        top_recipients = recipients.sort_values('Money out', ascending=False).head(10)
         
         # Plot top recipients
         fig = px.bar(
@@ -153,7 +153,7 @@ def process_bank_statement(df):
             x='Money out',
             color='Category',
             orientation='h',
-            title='Top 100 Recipients by Transaction Value',
+            title='Top 10 Recipients by Transaction Value',
             labels={'Money out': 'Total Money Out (₦)', 'To / From': 'Recipient'},
             height=600
         )
